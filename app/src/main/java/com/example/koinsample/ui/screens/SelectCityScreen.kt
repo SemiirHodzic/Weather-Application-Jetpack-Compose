@@ -14,9 +14,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.koinsample.ui.main.Screen
 
 @Composable
 fun SelectCityScreen(
+    navController: NavController
 ) {
     Scaffold(
         content = {
@@ -28,13 +31,14 @@ fun SelectCityScreen(
                 horizontalArrangement = Arrangement.Center
 
             ) {
-                Textfield()
+                Textfield(navController)
             }
         })
 }
 
 @Composable
 fun Textfield(
+    navController: NavController
 ) {
     var text by remember { mutableStateOf("") }
 
@@ -47,7 +51,7 @@ fun Textfield(
         ),
         keyboardActions = KeyboardActions(
             onSearch = {
-
+                navController.navigate(route = Screen.ShowForecast.navigateWithArguments(text))
             }
         ),
     )
