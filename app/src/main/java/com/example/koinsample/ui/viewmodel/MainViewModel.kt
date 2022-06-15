@@ -20,7 +20,7 @@ class MainViewModel(
     private val _error = MutableLiveData<String>()
 
 
-    fun getWeatherFor(city: String) {
+    fun getWeatherFor(city: String?) {
         viewModelScope.launch(ioDispatcher) {
             try {
                 val response = repository.getWeatherFor(city = city)
