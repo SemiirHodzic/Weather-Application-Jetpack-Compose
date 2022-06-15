@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">KoinSample</string>
+    <string name="compose">Jetpack Compose</string>
+    <string name="app_name">Weather With Koin</string>
+    <string name="temp_formatted_abs">%1$.0f °C</string>
 </resources>
