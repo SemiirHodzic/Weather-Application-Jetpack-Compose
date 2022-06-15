@@ -1,5 +1,6 @@
 package com.example.koinsample.ui.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -20,17 +21,17 @@ import org.joda.time.DateTime
 
 @Composable
 fun ShowForecastScreen(
+    city: String?,
     viewModel: MainViewModel
 ) {
 
     val forecast by viewModel.forecast.observeAsState(null)
-    viewModel.getWeatherFor(city = "Mostar")
+    viewModel.getWeatherFor(city = city)
 
     Scaffold(
         topBar = {
-            val title = stringResource(id = R.string.app_name)
             TopAppBar(
-                title = { Text(text = title) }
+                title = { city?.let { Text(text = "Weather in $it") } }
             )
         },
         content = { innerPadding ->
