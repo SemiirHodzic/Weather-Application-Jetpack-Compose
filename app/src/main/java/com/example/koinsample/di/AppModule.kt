@@ -1,9 +1,9 @@
-package com.example.koinsample
+package com.example.koinsample.di
 
 
 import com.example.koinsample.data.network.WeatherApi
-import com.example.koinsample.data.repository.WeatherRepository
-import com.example.koinsample.data.repository.WeatherRepositoryImpl
+import com.example.koinsample.repository.WeatherRepository
+import com.example.koinsample.repository.WeatherRepositoryImpl
 import com.example.koinsample.ui.viewmodel.MainViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.androidx.viewmodel.dsl.viewModel
