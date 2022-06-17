@@ -1,7 +1,7 @@
-package com.example.koinsample.ui.main
+package com.example.koinsample.application
 
 import android.app.Application
-import com.example.koinsample.appModule
+import com.example.koinsample.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
