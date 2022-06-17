@@ -53,6 +53,6 @@ fun Textfield(
             onSearch = {
                 navController.navigate(route = Screen.ShowForecast.navigateWithArguments(text))
             }
-        ),
+        ), singleLine = true
     )
 }
