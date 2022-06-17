@@ -35,6 +35,5 @@ fun MainScreen(viewModel: MainViewModel) {
                 viewModel = viewModel,
             )
         }
-
     }
 }
