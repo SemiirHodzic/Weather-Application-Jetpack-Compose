@@ -1,7 +1,7 @@
 package com.example.koinsample.utils
 
 import androidx.compose.runtime.Composable
-import com.example.koinsample.data.dto.WeatherForecast
+import com.example.koinsample.data.dto.forecast.WeatherForecast
 import com.google.gson.Gson
 
 @Composable
