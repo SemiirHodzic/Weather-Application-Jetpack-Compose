@@ -14,7 +14,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.koinsample.R
-import com.example.koinsample.data.dto.Forecast
+import com.example.koinsample.data.dto.forecast.Forecast
 import com.example.koinsample.ui.theme.KoinSampleTheme
 import com.example.koinsample.ui.viewmodel.MainViewModel
 import com.example.koinsample.utils.fromApiTime
