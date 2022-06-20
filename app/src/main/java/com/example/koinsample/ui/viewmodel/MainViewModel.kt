@@ -1,10 +1,12 @@
 package com.example.koinsample.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.koinsample.data.dto.WeatherForecast
+import com.example.koinsample.data.dto.city.CityCollection
+import com.example.koinsample.data.dto.forecast.WeatherForecast
 import com.example.koinsample.repository.WeatherRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
@@ -16,6 +18,9 @@ class MainViewModel(
 
     private val _forecast = MutableLiveData<WeatherForecast?>()
     val forecast: LiveData<WeatherForecast?> = _forecast
+
+    private val _listOfCities = MutableLiveData<CityCollection?>()
+    val listOfCities: LiveData<CityCollection?> = _listOfCities
 
     private val _error = MutableLiveData<String>()
 
@@ -33,6 +38,26 @@ class MainViewModel(
                 }
             } catch (t: Throwable) {
                 _error.postValue(t.message)
+            }
+        }
+    }
+
+    fun getListOfCities(city: String) {
+        viewModelScope.launch(ioDispatcher) {
+
+            try {
+                val citiesResponse = repository.getCitiesFromQuery(city)
+                val listOfCities = citiesResponse.body()
+
+                if (citiesResponse.isSuccessful && listOfCities != null) {
+                    _listOfCities.postValue(listOfCities)
+                } else {
+                    _error.postValue("Error: HttpCode(${citiesResponse.code()})")
+                }
+
+            } catch (t: Throwable) {
+                _error.postValue(t.message)
+                Log.d("ErrorMessage: ", t.message.toString())
             }
         }
     }
