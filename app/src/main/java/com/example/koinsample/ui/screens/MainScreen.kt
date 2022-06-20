@@ -12,12 +12,12 @@ import com.example.koinsample.ui.viewmodel.MainViewModel
 @Composable
 fun MainScreen(viewModel: MainViewModel) {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = Screen.SelectCity.route) {
+    NavHost(navController = navController, startDestination = Screen.SearchCity.route) {
 
         composable(
-            route = Screen.SelectCity.route,
+            route = Screen.SearchCity.route,
         ) {
-            SelectCityScreen(navController)
+            SearchCityScreen(viewModel, navController)
         }
 
         composable(
